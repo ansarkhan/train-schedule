@@ -8,12 +8,94 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
-    <title>Rock Paper Scissors!</title>
+    <title>Train Scheduler!</title>
 </head>
 <body>
-    <main role="main" class="container">
-
-    </main>
+    <div class='container'>
+            <div class='row justify-content-center'>
+                
+                <div class='col-12'>
+                    <div class='jumbotron jumbotron-fluid'>
+                        <h1 class="text-center">Train Time...</h1>
+                        <h3 class="text-center">Train scheduler built with Bootstrap</h3>   
+                    </div>
+                </div>
+    
+                <div class='col-12'>
+                    <div class='card mb-4'>
+                        <div class='card-header'>
+                            Current Train Schedule
+                        </div>
+                        <div class='card-body'>
+                            <table class="table table-hover" id='train-table'>
+                                <thead class='thead-dark'>
+                                    <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">Trenton Express</td>
+                                        <td>Trenton</td>
+                                        <td>25</td>
+                                        <td>5:45 PM</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Ansar</td>
+                                        <td>CEO</td>
+                                        <td>01/01/19</td>
+                                        <td>1</td>
+                                        <td>$2,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class='col-4'>
+                    <div class='card'>
+                        <div class='card-header'>
+                            Add Train
+                        </div>
+                        <div class='card-body'>
+                            <form>
+                                <div class='form-group'>
+                                    <label for="name">Train Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter train name">
+                                </div>
+                                <div class='form-group'>
+                                    <label for="role">Destination</label>
+                                    <input type="text" class="form-control" id="destination" placeholder="Enter train destination">
+                                </div>
+                                <div class='form-group'>
+                                    <label for="start-date">First Train Time </label>
+                                    <input type="number" class="form-control" id="first-train" placeholder="(HH:mm - military time)">
+                                </div>
+                                <div class='form-group'>
+                                    <label for="monthly-rate">Frequency</label>
+                                    <input type="number" class="form-control" id="frequency" placeholder="In minutes">
+                                </div>
+                                <div class='form-group'>
+                                    <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>
+                                </div>
+            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    
+                
+    
+            </div>
+    
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
