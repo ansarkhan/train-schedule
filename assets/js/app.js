@@ -53,27 +53,17 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
     var firstTrain = childSnapshot.val().firstTrain;
     var frequency = childSnapshot.val().frequency;
 
-    var nextArrival = null;
-    var minutesAway = null;
-    // Next arrival
-
-    // var calcArrival = function() {
-    //     // for loop
-    //         // for firstTrain + frequency > current time
-    //         // store that time in DB
-
-    // }
 
     // Minutes away
     // current time - next arrival
-    var m = moment(new Date()).format("hh:mm");
-    var initTime = moment(firstTrain, 'HH:mm');
-    var duration = moment.duration(m.diff(initTime));
+    var now = moment(new Date());
+    var initTime = moment(firstTrain, 'hh:mm');
+    var duration = moment.duration(now.diff(initTime)).asMinutes();
     diffy = duration % frequency;
-    minsAway = frequency - diffy;
+    minsAway = Math.round(frequency - diffy);
 
   
-  
+    // Next arrival
   
     // Create the new row
     var newRow = 
@@ -81,21 +71,17 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
     $("<td>").text(name),
     $("<td>").text(destination),
     $("<td>").text(frequency),
-    $("<td>").text(minsAway), // add next arrival
-    $("<td>").text('minutes away') // add minutes away
+    $("<td>").text('Next Arrival'), // add next arrival
+    $("<td>").text(minsAway) // add minutes away
     );
   
     // Append the new row to the table
     $("#train-table > tbody").append(newRow);
   });
 
-//   var m = moment(new Date());
-//   console.log(m);
 
-//   var hoursMins = m.format("hh:mm")
-//   console.log(hoursMins);
 
-// var m = moment(new Date()).format("hh:mm");
+// var m = moment(new Date());
 // console.log(m);
 
 // initTime = "11:35"
@@ -104,6 +90,7 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
 
 // var calcArrival = function() {
 //     var t = moment(initTime, 'HH:mm');
+
 //     var duration = moment.duration(m.diff(t));
 //     var minutes = duration.asMinutes();
 //     console.log(minutes);
@@ -115,8 +102,6 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
 // }
 
 // calcArrival();
-
-
 
 //   var convertedDate = moment(randomDate, randomFormat);
 
