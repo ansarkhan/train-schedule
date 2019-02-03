@@ -63,7 +63,7 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
     minsAway = Math.round(frequency - diffy);
 
   
-    // Next arrival
+    var nextArrival = now.add(minsAway, 'minutes').format('LT')
   
     // Create the new row
     var newRow = 
@@ -71,43 +71,10 @@ database.ref('/trains').on("child_added", function(childSnapshot) {
     $("<td>").text(name),
     $("<td>").text(destination),
     $("<td>").text(frequency),
-    $("<td>").text('Next Arrival'), // add next arrival
+    $("<td>").text(nextArrival), // add next arrival
     $("<td>").text(minsAway) // add minutes away
     );
   
     // Append the new row to the table
     $("#train-table > tbody").append(newRow);
   });
-
-
-
-// var m = moment(new Date());
-// console.log(m);
-
-// initTime = "11:35"
-// frequencyMin = 15;
-
-
-// var calcArrival = function() {
-//     var t = moment(initTime, 'HH:mm');
-
-//     var duration = moment.duration(m.diff(t));
-//     var minutes = duration.asMinutes();
-//     console.log(minutes);
-//     diffe = minutes % frequencyMin;
-//     timeL = frequencyMin - diffe;
-//     console.log('time till next train: ' + timeL);
-
-
-// }
-
-// calcArrival();
-
-//   var convertedDate = moment(randomDate, randomFormat);
-
-  // Using scripts from moment.js write code below to complete each of the following.
-  // Console.log to confirm the code changes you made worked.
-
-  // 1 ...to convert the randomDate into three other date formats
-  // console.log(convertedDate.format("MM/DD/YY"));
-  // console.log(convertedDate.format("MMM Do, YYYY hh:mm:ss"));
