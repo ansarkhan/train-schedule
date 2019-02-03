@@ -25,8 +25,6 @@ var addTrain = function() {
         frequency: frequency
     };
 
-    console.log("hello!");
-
     database.ref('/trains').push(train);
 
     $('#name').val('');
